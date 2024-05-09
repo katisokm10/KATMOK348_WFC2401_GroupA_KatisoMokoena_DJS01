@@ -10,6 +10,7 @@ This challenge invites students to debug, refactor, and enhance JavaScript funct
 
 ##### Problem Areas to Address
 
+
 1. **Unit Mismatch**: The provided functions fail to convert units correctly, leading to calculation inaccuracies.
 2. **Parameter Misalignment**: Parameters are not handled in a way that prevents or highlights the potential for unit mismatch errors, leading to possible confusion.
 
