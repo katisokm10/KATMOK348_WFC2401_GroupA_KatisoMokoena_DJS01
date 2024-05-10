@@ -16,11 +16,22 @@ const fuelBurnRate = 0.5; // fuel burn rate (kg/s)
 
 const newDistance = distance + (initialVelocity*(time/3600)) //calcultes new distance
 const remaingFuel = initialFuel - (fuelBurnRate*time )//calculates remaining fuel
-//const newVelocity = calcNewVel(acceleration, initialVelocity, time) //calculates new velocity based on acceleration
 
 // Pick up an error with how the function below is called and make it robust to such errors
 const calcNewVel = (acceleration, initialVelocity, time) => { 
-  return initialVelocity + (acceleration*time)
+  // Convert initial velocity from km/h to m/s
+  const initialVelocity_mps = initialVelocity * (1000 / 3600);
+
+  // Calculate change in velocity in m/s
+  const deltaVelocity_mps = acceleration * time;
+
+  // Add change in velocity to initial velocity to get new velocity in m/s
+  const newVelocity_mps = initialVelocity_mps + deltaVelocity_mps;
+
+  // Convert new velocity from m/s to km/h
+  const newVelocity_kmph = newVelocity_mps * (3600 / 1000);
+
+  return newVelocity_kmph; // return new velocity in km/h
 }
 const newVelocity = calcNewVel(acceleration, initialVelocity, time) //calculates new velocity based on acceleration
 
